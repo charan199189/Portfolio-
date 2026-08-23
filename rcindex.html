@@ -1,0 +1,3012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jetipiti Ram Charan — B.Tech CSE Student Portfolio" />
+
+  <title>Jetipiti Ram Charan | Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <style>
+    :root {
+      --brown-950: #21130e;
+      --brown-900: #2b1811;
+      --brown-800: #3a2118;
+      --brown-700: #4d2c20;
+      --brown-600: #76533d;
+      --brown-500: #a87545;
+
+      --cream-50: #fffaf1;
+      --cream-100: #f8f0e2;
+      --cream-200: #f1e5d3;
+      --cream-300: #e7d7c0;
+
+      --white: #ffffff;
+
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+
+      --shadow-sm: 0 10px 30px rgba(43, 24, 17, 0.08);
+      --shadow-md: 0 20px 50px rgba(43, 24, 17, 0.13);
+      --shadow-lg: 0 35px 90px rgba(43, 24, 17, 0.18);
+
+      --radius-sm: 14px;
+      --radius-md: 24px;
+      --radius-lg: 34px;
+
+      --container: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream-50);
+      color: var(--brown-950);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin-inline: auto;
+    }
+
+    /* =========================
+       PRELOADER
+    ========================= */
+
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--brown-950);
+      display: grid;
+      place-items: center;
+      transition: opacity 0.7s ease, visibility 0.7s ease;
+    }
+
+    .preloader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader {
+      width: 45px;
+      height: 45px;
+      border: 2px solid rgba(255, 250, 241, 0.2);
+      border-top-color: var(--cream-50);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* =========================
+       CUSTOM CURSOR
+    ========================= */
+
+    .cursor-glow {
+      position: fixed;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(
+        circle,
+        rgba(168, 117, 69, 0.09),
+        transparent 65%
+      );
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(94%, 1120px);
+      z-index: 1000;
+
+      padding: 13px 16px 13px 22px;
+      border: 1px solid rgba(58, 33, 24, 0.12);
+      border-radius: 100px;
+
+      background: rgba(255, 250, 241, 0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow: 0 10px 40px rgba(43, 24, 17, 0.07);
+      transition: 0.35s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 250, 241, 0.92);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: var(--cream-50);
+      background: var(--brown-800);
+      border-radius: 50%;
+      font-family: var(--serif);
+      font-size: 17px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+
+    .brand-name {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--brown-600);
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--brown-950);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 1px;
+      background: var(--brown-800);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-socials {
+      display: flex;
+      gap: 8px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--cream-100);
+      color: var(--brown-800);
+      border: 1px solid var(--cream-300);
+      transition: 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background: var(--brown-800);
+      color: var(--cream-50);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      background: var(--brown-800);
+      color: var(--cream-50);
+      border-radius: 50%;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 150px 0 90px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      top: -250px;
+      right: -250px;
+      background: radial-gradient(
+        circle,
+        rgba(168, 117, 69, 0.16),
+        transparent 68%
+      );
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid var(--cream-300);
+      border-radius: 100px;
+      color: var(--brown-600);
+      background: rgba(255,255,255,0.4);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-bottom: 26px;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--brown-500);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(64px, 8vw, 118px);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+      color: var(--brown-950);
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--brown-600);
+    }
+
+    .hero-subtitle {
+      margin-top: 32px;
+      font-size: clamp(18px, 2vw, 23px);
+      color: var(--brown-700);
+      font-weight: 600;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin-top: 17px;
+      color: var(--brown-600);
+      font-size: 16px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .btn {
+      min-height: 52px;
+      padding: 0 23px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      border-radius: 100px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      font-weight: 700;
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--brown-800);
+      color: var(--cream-50);
+      box-shadow: 0 12px 30px rgba(58, 33, 24, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      background: var(--brown-950);
+      box-shadow: 0 18px 38px rgba(58, 33, 24, 0.28);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--brown-800);
+      border-color: var(--brown-300);
+      border-color: var(--cream-300);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-4px);
+      background: var(--cream-100);
+      border-color: var(--brown-500);
+    }
+
+    /* HERO PHOTO */
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 540px;
+    }
+
+    .photo-wrapper {
+      width: min(410px, 80vw);
+      aspect-ratio: 0.82;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotateY(-3deg);
+      }
+      50% {
+        transform: translateY(-12px) rotateY(3deg);
+      }
+    }
+
+    .photo-back {
+      position: absolute;
+      inset: 25px -20px -25px 20px;
+      border: 1px solid rgba(118, 83, 61, 0.2);
+      border-radius: 42px;
+      transform: translateZ(-40px) rotate(7deg);
+      background: var(--cream-200);
+    }
+
+    .photo-frame {
+      position: absolute;
+      inset: 0;
+      padding: 12px;
+      border-radius: 42px;
+      background: var(--brown-800);
+      box-shadow: var(--shadow-lg);
+      transform: translateZ(20px);
+    }
+
+    .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 33px;
+    overflow: hidden;
+    background: #eadcc8;
+    border: 1px solid rgba(90, 50, 31, 0.18);
+    padding: 0;
+    display: block;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+    .photo-placeholder-inner i {
+      font-size: 55px;
+      margin-bottom: 16px;
+      color: var(--brown-500);
+    }
+
+    .photo-placeholder-inner strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 26px;
+      color: var(--brown-800);
+    }
+
+    .photo-placeholder-inner small {
+      display: block;
+      margin-top: 7px;
+      font-size: 12px;
+    }
+
+    .floating-tag {
+      position: absolute;
+      padding: 11px 15px;
+      border: 1px solid rgba(118,83,61,0.14);
+      background: rgba(255,250,241,0.82);
+      backdrop-filter: blur(15px);
+      border-radius: 100px;
+      box-shadow: var(--shadow-sm);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brown-700);
+      white-space: nowrap;
+      z-index: 4;
+    }
+
+    .tag-one {
+      top: 10%;
+      left: -3%;
+      transform: rotate(-7deg);
+    }
+
+    .tag-two {
+      right: -8%;
+      top: 38%;
+      transform: rotate(6deg);
+    }
+
+    .tag-three {
+      bottom: 13%;
+      left: -5%;
+      transform: rotate(4deg);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      color: var(--brown-600);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: var(--brown-500);
+      animation: scrollLine 1.7s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scaleY(0.5);
+        transform-origin: top;
+      }
+      50% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      position: relative;
+      padding: 120px 0;
+    }
+
+    .section-label {
+      color: var(--brown-500);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      color: var(--brown-950);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 55px;
+    }
+
+    .section-description {
+      max-width: 600px;
+      margin-top: 20px;
+      color: var(--brown-600);
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background: var(--brown-800);
+      color: var(--cream-50);
+    }
+
+    .about .section-label {
+      color: #d1a777;
+    }
+
+    .about .section-title {
+      color: var(--cream-50);
+    }
+
+    .about .section-description {
+      color: rgba(255,250,241,0.68);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text {
+      color: rgba(255,250,241,0.75);
+      font-size: 18px;
+      line-height: 1.9;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+    }
+
+    .stat-card {
+      min-height: 180px;
+      padding: 25px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,250,241,0.12);
+      background: rgba(255,250,241,0.055);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: 0.35s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-7px) rotateX(2deg);
+      background: rgba(255,250,241,0.09);
+      border-color: rgba(255,250,241,0.2);
+    }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 34px;
+      color: var(--cream-50);
+    }
+
+    .stat-title {
+      margin-top: 7px;
+      color: #d5b795;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      min-height: 235px;
+      padding: 30px;
+      border: 1px solid var(--cream-300);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.45);
+      box-shadow: var(--shadow-sm);
+      transform-style: preserve-3d;
+      transition: 0.35s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(118,83,61,0.28);
+    }
+
+    .skill-icon {
+      width: 53px;
+      height: 53px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--brown-800);
+      color: var(--cream-50);
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .skill-card h3 {
+      font-family: var(--serif);
+      font-size: 25px;
+      color: var(--brown-900);
+    }
+
+    .skill-card p {
+      margin-top: 8px;
+      color: var(--brown-600);
+      font-size: 14px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+   /* =========================================
+   PROJECTS SECTION
+========================================= */
+
+.projects {
+  background: var(--cream-100);
+  padding: 110px 0;
+}
+
+
+/* =========================================
+   PROJECT LIST
+========================================= */
+
+.projects-list {
+  display: grid;
+  gap: 24px;
+}
+
+
+/* =========================================
+   PROJECT CARD
+========================================= */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+
+  background: var(--cream-50);
+
+  border: 1px solid var(--cream-300);
+  border-radius: 30px;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: var(--shadow-lg);
+
+  border-color: rgba(118, 83, 61, 0.25);
+}
+
+
+/* =========================================
+   MAIN PROJECT ROW
+========================================= */
+
+.project-main {
+  display: grid;
+
+  grid-template-columns: 330px minmax(0, 1fr);
+
+  align-items: center;
+
+  min-height: 270px;
+}
+
+
+/* =========================================
+   CREAM PROJECT FRAME
+========================================= */
+
+.project-image {
+  position: relative;
+
+  width: 285px;
+  height: 220px;
+
+  margin: 24px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: var(--cream-50);
+
+  border: 1px solid var(--cream-300);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   IMAGE WRAPPER
+========================================= */
+
+.project-placeholder {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: transparent;
+}
+
+
+/* =========================================
+   PROJECT IMAGE
+========================================= */
+
+.project-placeholder img {
+  display: block;
+
+  /*
+    width/height auto so element box = rendered image size.
+    border-radius then clips the actual image edge pixels,
+    removing the visible seam line where sp.jpg's light
+    lavender edge meets the cream frame background.
+  */
+
+  width: auto;
+  height: auto;
+
+  max-width: 92%;
+  max-height: 92%;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+
+  border: 0;
+
+  border-radius: 20px;
+
+  transform: none;
+
+  transition: transform 0.4s ease;
+}
+
+
+/* Small hover only */
+
+.project-card:hover .project-placeholder img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================
+   PROJECT INFO
+========================================= */
+
+.project-info {
+  min-width: 0;
+
+  padding: 38px 42px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+/* =========================================
+   PROJECT NUMBER
+========================================= */
+
+.project-number {
+  color: var(--brown-500);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+
+  margin-bottom: 14px;
+}
+
+
+/* =========================================
+   PROJECT TITLE
+========================================= */
+
+.project-title {
+  margin: 0;
+
+  font-family: var(--serif);
+
+  font-size: clamp(34px, 4vw, 50px);
+
+  line-height: 0.98;
+
+  color: var(--brown-950);
+}
+
+
+/* =========================================
+   PROJECT CATEGORY
+========================================= */
+
+.project-category {
+  margin: 14px 0 0;
+
+  color: var(--brown-600);
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   DETAILS BUTTON
+========================================= */
+
+.details-btn {
+  width: fit-content;
+
+  margin-top: 26px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--brown-800);
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  cursor: pointer;
+}
+
+.details-btn i {
+  font-style: normal;
+
+  display: inline-block;
+
+  transition: transform 0.3s ease;
+}
+
+.details-btn:hover {
+  color: var(--brown-500);
+}
+
+
+/* =========================================
+   DETAILS OPEN STATE
+========================================= */
+
+.project-card.open .details-btn i {
+  transform: rotate(180deg);
+}
+
+
+/* =========================================
+   PROJECT DETAILS
+========================================= */
+
+.project-details {
+  max-height: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition:
+    max-height 0.6s cubic-bezier(.22, .61, .36, 1),
+    opacity 0.35s ease;
+}
+
+.project-card.open .project-details {
+  max-height: 700px;
+
+  opacity: 1;
+}
+
+
+/* =========================================
+   DETAILS INNER
+========================================= */
+
+.project-details-inner {
+  border-top: 1px solid var(--cream-300);
+
+  padding: 34px 42px 42px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 40px;
+}
+
+
+/* =========================================
+   DETAILS TEXT
+========================================= */
+
+.details-copy p {
+  margin: 0;
+
+  color: var(--brown-600);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   FEATURE TITLE
+========================================= */
+
+.feature-title {
+  color: var(--brown-800);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  margin-bottom: 12px;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+
+  gap: 9px;
+}
+
+.features li {
+  color: var(--brown-600);
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+}
+
+.features li::before {
+  content: "✦";
+
+  color: var(--brown-500);
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   MORE PROJECTS
+========================================= */
+
+.more-projects {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 42px;
+}
+
+
+.more-projects-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 14px 22px;
+
+  border: 1px solid var(--cream-300);
+
+  border-radius: 999px;
+
+  background: var(--cream-50);
+
+  color: var(--brown-800);
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.more-projects-btn span {
+  transition: transform 0.3s ease;
+}
+
+.more-projects-btn:hover {
+  transform: translateY(-2px);
+
+  color: var(--cream-50);
+
+  background: var(--brown-800);
+}
+
+.more-projects-btn:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+
+  .projects {
+    padding: 80px 0;
+  }
+
+  .project-main {
+    grid-template-columns: 270px minmax(0, 1fr);
+
+    min-height: 240px;
+  }
+
+  .project-image {
+    width: 240px;
+    height: 190px;
+
+    margin: 18px;
+  }
+
+  .project-info {
+    padding: 28px 26px;
+  }
+
+  .project-title {
+    font-size: clamp(30px, 5vw, 42px);
+  }
+
+  .project-details-inner {
+    padding: 28px;
+
+    gap: 28px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .projects {
+    padding: 70px 0;
+  }
+
+
+  .projects-list {
+    gap: 18px;
+  }
+
+
+  /* Image becomes top section */
+
+  .project-main {
+    display: block;
+
+    min-height: auto;
+  }
+
+
+  /* =====================================
+     MOBILE CREAM FRAME
+  ===================================== */
+
+  .project-image {
+    width: calc(100% - 28px);
+
+    height: 230px;
+
+    margin: 14px;
+
+    border-radius: 22px;
+  }
+
+
+  .project-placeholder {
+    padding: 12px;
+
+    border-radius: 22px;
+  }
+
+
+  .project-placeholder img {
+    max-width: 92%;
+
+    max-height: 92%;
+
+    border-radius: 20px;
+  }
+
+
+  /* =====================================
+     MOBILE PROJECT INFO
+  ===================================== */
+
+  .project-info {
+    padding: 24px 22px 28px;
+  }
+
+
+  .project-number {
+    margin-bottom: 11px;
+  }
+
+
+  .project-title {
+    font-size: clamp(32px, 10vw, 44px);
+
+    line-height: 1;
+  }
+
+
+  .project-category {
+    font-size: 12px;
+
+    margin-top: 11px;
+  }
+
+
+  .details-btn {
+    margin-top: 22px;
+  }
+
+
+  /* =====================================
+     MOBILE DETAILS
+  ===================================== */
+
+  .project-details-inner {
+    grid-template-columns: 1fr;
+
+    gap: 26px;
+
+    padding: 26px 22px 30px;
+  }
+
+
+  .details-copy p {
+    font-size: 14px;
+  }
+
+
+  /* =====================================
+     MORE PROJECTS
+  ===================================== */
+
+  .more-projects {
+    margin-top: 30px;
+  }
+
+  .more-projects-btn {
+    padding: 13px 19px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+  .project-image {
+    height: 210px;
+
+    margin: 12px;
+
+    width: calc(100% - 24px);
+  }
+
+  .project-placeholder {
+    padding: 10px;
+  }
+
+  .project-info {
+    padding: 22px 18px 26px;
+  }
+
+  .project-details-inner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+}
+    /* ===============================
+   INTERESTS
+   =============================== */
+
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.interest-card {
+  min-height: 300px;
+  position: relative;
+  padding: 32px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--brown-800);
+  color: var(--cream-50);
+  box-shadow: var(--shadow-md);
+  transform-style: preserve-3d;
+  transition: 0.4s ease;
+}
+
+.interest-card:hover {
+  transform: translateY(-9px) rotateX(2deg);
+  box-shadow: var(--shadow-lg);
+}
+
+.interest-card::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  right: -80px;
+  bottom: -80px;
+  border: 1px solid rgba(255,250,241,0.12);
+  border-radius: 50%;
+}
+
+.interest-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  background: rgba(255,250,241,0.09);
+  color: #d1a777;
+  font-size: 20px;
+  margin-bottom: 45px;
+}
+
+.interest-card h3 {
+  font-family: var(--serif);
+  font-size: 29px;
+}
+
+.interest-card p {
+  margin-top: 12px;
+  color: rgba(255,250,241,0.68);
+  font-size: 14px;
+}
+
+/* ===============================
+   CONTACT
+   =============================== */
+
+.contact {
+  background: var(--cream-100);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.contact-copy p {
+  color: var(--brown-600);
+  margin-top: 18px;
+  max-width: 430px;
+}
+
+.contact-links {
+  margin-top: 35px;
+  display: grid;
+  gap: 12px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 17px;
+  border: 1px solid var(--cream-300);
+  background: rgba(255,255,255,0.4);
+  transition: 0.3s ease;
+}
+
+.contact-link:hover {
+  transform: translateX(5px);
+  background: var(--cream-50);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-link-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 13px;
+  background: var(--brown-800);
+  color: var(--cream-50);
+  display: grid;
+  place-items: center;
+}
+
+.contact-link-text small {
+  display: block;
+  color: var(--brown-500);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.contact-link-text span {
+  display: block;
+  color: var(--brown-800);
+  font-size: 13px;
+  margin-top: 2px;
+  word-break: break-word;
+}
+
+.contact-form {
+  padding: 38px;
+  border-radius: 30px;
+  background: var(--cream-50);
+  border: 1px solid var(--cream-300);
+  box-shadow: var(--shadow-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--brown-700);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid var(--cream-300);
+  background: var(--cream-100);
+  color: var(--brown-950);
+  border-radius: 14px;
+  padding: 14px 16px;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.form-group textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--brown-500);
+  box-shadow: 0 0 0 4px rgba(168,117,69,0.09);
+}
+
+.form-message {
+  display: none;
+  margin-top: 15px;
+  color: var(--brown-600);
+  font-size: 13px;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+
+footer {
+  background: var(--brown-950);
+  color: var(--cream-50);
+  padding: 55px 0 25px;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.footer-name {
+  font-family: var(--serif);
+  font-size: 34px;
+  line-height: 0.95;
+}
+
+.footer-subtitle {
+  color: rgba(255,250,241,0.55);
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 9px;
+}
+
+.footer-social {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,250,241,0.12);
+  border-radius: 50%;
+  color: var(--cream-50);
+  transition: 0.3s ease;
+}
+
+.footer-social:hover {
+  background: var(--cream-50);
+  color: var(--brown-950);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,250,241,0.1);
+  color: rgba(255,250,241,0.4);
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* ===============================
+   REVEAL ANIMATIONS
+   =============================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 1000px) {
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-grid {
+    gap: 55px;
+  }
+
+  .hero-visual {
+    min-height: 500px;
+  }
+
+  .skills-grid,
+  .interest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-main {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: min(100% - 28px, var(--container));
+  }
+
+  section {
+    padding: 85px 0;
+  }
+
+  .navbar {
+    top: 10px;
+    padding: 10px 11px 10px 16px;
+  }
+
+  .nav-links,
+  .nav-socials {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar.mobile-open {
+    border-radius: 25px;
+  }
+
+  .navbar.mobile-open .nav-links {
+    position: absolute;
+    top: calc(100% + 9px);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px;
+    background: rgba(255,250,241,0.97);
+    border: 1px solid var(--cream-300);
+    border-radius: 22px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .navbar.mobile-open .nav-links a {
+    padding: 13px;
+    border-radius: 12px;
+  }
+
+  .navbar.mobile-open .nav-links a:hover {
+    background: var(--cream-100);
+  }
+
+  .brand-name {
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 130px;
+  }
+
+  .hero-title {
+    font-size: clamp(57px, 18vw, 88px);
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-visual {
+    min-height: 430px;
+  }
+
+  .photo-wrapper {
+    width: min(330px, 76vw);
+  }
+
+  .floating-tag {
+    font-size: 9px;
+    padding: 9px 11px;
+  }
+
+  .tag-one {
+    left: 0;
+  }
+
+  .tag-two {
+    right: -3%;
+  }
+
+  .tag-three {
+    left: 0;
+  }
+
+  .stats-grid,
+  .skills-grid,
+  .interest-grid,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text {
+    font-size: 15px;
+  }
+
+  .project-info {
+    padding: 30px 24px;
+  }
+
+  .project-details-inner {
+    grid-template-columns: 1fr;
+    padding: 27px 24px 30px;
+  }
+
+  .project-action {
+    grid-column: auto;
+  }
+
+  .contact-form {
+    padding: 25px;
+  }
+
+  .footer-main,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+  <div class="loader"></div>
+</div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ===============================
+     NAVBAR
+     =============================== -->
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+
+    <a href="#home" class="brand">
+      <span class="brand-mark">JR</span>
+      <span class="brand-name">Jetipiti Ram Charan</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-socials">
+      <a
+        class="social-btn"
+        href="https://github.com/charan199189"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+
+      <a
+        class="social-btn"
+        href="https://www.linkedin.com/in/jetipiti-ram-charan-63767537"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===============================
+       HERO
+       =============================== -->
+
+  <section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+      <div class="hero-content reveal">
+
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          B.Tech CSE Student · Developer in Progress
+        </div>
+
+        <h1 class="hero-title">
+          Jetipiti Ram
+          <span>Charan</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Aspiring Web & Mobile Developer
+        </p>
+
+        <p class="hero-description">
+          I am a second-year Computer Science and Engineering student passionate about building practical digital experiences, exploring web and mobile development, and continuously learning new technologies.
+        </p>
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#projects" class="btn btn-primary">
+            View Projects
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+
+          <a href="#contact" class="btn btn-secondary">
+            Let's Connect
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-visual reveal">
+
+        <div class="floating-tag tag-one">
+          <i class="fa-solid fa-code"></i>
+          Web Development
+        </div>
+
+        <div class="floating-tag tag-two">
+          <i class="fa-solid fa-mobile-screen"></i>
+          Mobile
+        </div>
+
+        <div class="floating-tag tag-three">
+          <i class="fa-solid fa-shield-halved"></i>
+          Cybersecurity
+        </div>
+
+        <div class="photo-wrapper">
+
+          <div class="photo-back"></div>
+
+          <div class="photo-frame">
+
+            <!-- Replace this div with your actual image later -->
+            <div class="photo-placeholder">
+               <img
+                   src="Mee.jpg"
+                   alt="Jetipiti Ram Charan"
+                   />
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="hero-scroll">
+      Scroll to explore
+      <span class="scroll-line"></span>
+    </div>
+
+  </section>
+
+  <!-- ===============================
+       ABOUT
+       =============================== -->
+
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <div class="section-label">01 – About</div>
+
+        <h2 class="section-title">
+          Learning by<br />
+          building.
+        </h2>
+
+      </div>
+
+      <div class="about-grid">
+
+        <p class="about-text reveal">
+          I am a second-year B.Tech Computer Science and Engineering student at DVR & Dr. HS MIC College of Technology. I am interested in Web Development, Mobile App Development, and Cybersecurity. I enjoy learning by building projects and turning ideas into practical, user-friendly applications. I have already worked on frontend projects and am currently expanding my knowledge by working with backend technologies and database connectivity.
+        </p>
+
+        <div class="stats-grid reveal">
+
+          <div class="stat-card">
+            <div class="stat-number">2nd</div>
+            <div class="stat-title">Year – B.Tech CSE</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number">2+</div>
+            <div class="stat-title">Frontend Projects</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number">Learning</div>
+            <div class="stat-title">Backend & Databases</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-title">Core Interests</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===============================
+       SKILLS
+       =============================== -->
+
+  <section id="skills">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <div class="section-label">02 – Skills</div>
+
+        <h2 class="section-title">
+          Skills &<br />
+          learning.
+        </h2>
+
+        <p class="section-description">
+          I am focused on learning through real projects rather than claiming expertise before I have earned it.
+        </p>
+
+      </div>
+
+      <div class="skills-grid">
+
+        <article class="skill-card reveal">
+          <div class="skill-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+
+          <h3>Frontend Development</h3>
+
+          <p>
+            Building responsive interfaces and practical web projects.
+          </p>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+
+          <h3>UI Development</h3>
+
+          <p>
+            Creating clean layouts with a strong focus on usability.
+          </p>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon">
+            <i class="fa-solid fa-server"></i>
+          </div>
+
+          <h3>Backend Connectivity</h3>
+
+          <p>
+            Currently expanding my knowledge of backend integration.
+          </p>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon">
+            <i class="fa-solid fa-database"></i>
+          </div>
+
+          <h3>Databases</h3>
+
+          <p>
+            Currently learning database connectivity and backend data flow.
+          </p>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
+
+          <h3>Mobile Development</h3>
+
+          <p>
+            Exploring mobile application development and practical mobile experiences.
+          </p>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+
+          <h3>Cybersecurity</h3>
+
+          <p>
+            Exploring cybersecurity and ethical hacking fundamentals.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===============================
+       PROJECTS
+       =============================== -->
+
+  <section class="projects" id="projects">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <div class="section-label">03 – Projects</div>
+
+        <h2 class="section-title">
+          Selected<br />
+          projects.
+        </h2>
+
+        <p class="section-description">
+          A few things I've built while learning and experimenting.
+        </p>
+
+      </div>
+
+      <div class="projects-list">
+
+        <!-- PROJECT 1 -->
+
+        <article class="project-card reveal">
+
+          <div class="project-main">
+
+            <div class="project-image">
+
+              <div class="project-placeholder">
+
+                  <img
+                    src="tg.jpg"
+                    alt="TicketGo Project"
+                  />
+
+                </div>
+
+              </div>
+
+            <div class="project-info">
+
+              <div class="project-number">PROJECT 01</div>
+
+              <h3 class="project-title">
+                TicketGo
+              </h3>
+
+              <div class="project-category">
+                Bus Ticket Booking · Frontend Web Project
+              </div>
+
+              <button class="details-btn" type="button">
+                Details
+                <span>↓</span>
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="project-details">
+
+            <div class="project-details-inner">
+
+              <div class="details-copy">
+
+                <div class="feature-title">
+                  About the project
+                </div>
+
+                <p>
+                  TicketGo is a bus ticket booking frontend project designed to provide a simple and practical bus reservation experience. Users can select their preferred bus journey based on date and time, enter their name and phone number, and book available tickets.
+                </p>
+
+              </div>
+
+              <div>
+
+                <div class="feature-title">
+                  Features
+                </div>
+
+                <ul class="features">
+                  <li>Bus ticket booking</li>
+                  <li>Date and time selection</li>
+                  <li>Passenger name and phone number</li>
+                  <li>Available spot ticket display</li>
+                  <li>Waiting list functionality</li>
+                  <li>Booking confirmation</li>
+                  <li>Unique ticket ID</li>
+                  <li>Ticket cancellation using phone number</li>
+                  <li>Waiting-list status</li>
+                </ul>
+
+              </div>
+
+              <div class="project-action">
+
+                <a
+                  href="https://charan199189.github.io/Bus-tickets-booking-/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary"
+                >
+                  View Project
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+        <!-- PROJECT 2 -->
+
+        <article class="project-card reveal">
+
+          <div class="project-main">
+
+            <div class="project-image">
+
+              <div class="project-placeholder">
+                  <img src="sp.jpg"
+                   alt="Academic Portal Project"
+                   />
+
+                </div>
+
+              </div>
+
+          
+
+            <div class="project-info">
+
+              <div class="project-number">PROJECT 02</div>
+
+              <h3 class="project-title">
+                Class Attendance
+              </h3>
+
+              <div class="project-category">
+                Academic Portal · Frontend Web Project
+              </div>
+
+              <button class="details-btn" type="button">
+                Details
+                <span>↓</span>
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="project-details">
+
+            <div class="project-details-inner">
+
+              <div class="details-copy">
+
+                <div class="feature-title">
+                  About the project
+                </div>
+
+                <p>
+                  A frontend website created for my class to organize important academic information in one place.
+                </p>
+
+              </div>
+
+              <div>
+
+                <div class="feature-title">
+                  Features
+                </div>
+
+                <ul class="features">
+                  <li>Attendance information</li>
+                  <li>Mid-term marks</li>
+                  <li>Study materials</li>
+                  <li>Class-related academic information</li>
+                  <li>Simple and accessible interface</li>
+                </ul>
+
+              </div>
+
+              <div class="project-action">
+
+                <a
+                  href="https://charan199189.github.io/Attendance-website/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary"
+                >
+                  View Project
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <div class="more-projects reveal">
+        <a href="project.html" class="more-projects-btn">
+          More Projects <span>→</span>
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===============================
+       INTERESTS
+       =============================== -->
+
+  <section id="interests">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <div class="section-label">04 – Interests</div>
+        <h2 class="section-title">
+          What I'm<br />
+          interested in.
+        </h2>
+
+      </div>
+
+      <div class="interest-grid">
+
+        <article class="interest-card reveal">
+
+          <div class="interest-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+
+          <h3>Web Development</h3>
+
+          <p>
+            Building modern, responsive, and useful web applications.
+          </p>
+
+        </article>
+
+        <article class="interest-card reveal">
+
+          <div class="interest-icon">
+            <i class="fa-solid fa-mobile-screen"></i>
+          </div>
+
+          <h3>Mobile App Development</h3>
+
+          <p>
+            Exploring the world of mobile applications and learning how to create practical mobile experiences.
+          </p>
+
+        </article>
+
+        <article class="interest-card reveal">
+
+          <div class="interest-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+
+          <h3>Cybersecurity</h3>
+
+          <p>
+            Learning about cybersecurity and ethical hacking with the goal of understanding how systems can be protected.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===============================
+       CONTACT
+       =============================== -->
+
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="contact-grid">
+
+        <div class="contact-copy reveal">
+
+          <div class="section-label">05 – Contact</div>
+
+          <h2 class="section-title">
+            Let's<br />
+            connect.
+          </h2>
+
+          <p>
+            Have something to share, a project idea, or just want to connect? Send me a message.
+          </p>
+
+          <div class="contact-links">
+
+            <a
+              href="mailto:djtillu1816@gmail.com"
+              class="contact-link"
+            >
+
+              <div class="contact-link-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+
+              <div class="contact-link-text">
+                <small>Email</small>
+                <span>djtillu1816@gmail.com</span>
+              </div>
+
+            </a>
+
+            <a
+              href="https://github.com/charan199189"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+
+              <div class="contact-link-icon">
+                <i class="fa-brands fa-github"></i>
+              </div>
+
+              <div class="contact-link-text">
+                <small>GitHub</small>
+                <span>github.com/charan199189</span>
+              </div>
+
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/jetipiti-ram-charan-63767537"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+
+              <div class="contact-link-icon">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+
+              <div class="contact-link-text">
+                <small>LinkedIn</small>
+                <span>Jetipiti Ram Charan</span>
+              </div>
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <form class="contact-form reveal">
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Your name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="message">
+              Message
+            </label>
+
+            <textarea
+              id="message"
+              placeholder="Write your message..."
+              required
+            ></textarea>
+
+          </div>
+
+          <button class="btn btn-primary" type="submit">
+            Send Message
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+
+          <div class="form-message" id="formMessage">
+            Your email application should open shortly.
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ===============================
+     FOOTER
+     =============================== -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-main">
+
+      <div>
+
+        <div class="footer-name">
+          Jetipiti Ram<br />
+          Charan
+        </div>
+
+        <div class="footer-subtitle">
+          B.Tech CSE Student · Web & Mobile Development Enthusiast
+        </div>
+
+      </div>
+
+      <div class="footer-socials">
+
+        <a
+          href="https://github.com/charan199189"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-social"
+          aria-label="GitHub"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/jetipiti-ram-charan-63767537"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-social"
+          aria-label="LinkedIn"
+        >
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a
+          href="mailto:djtillu1816@gmail.com"
+          class="footer-social"
+          aria-label="Email"
+        >
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 Jetipiti Ram Charan. All rights reserved.
+      </span>
+
+      <span>
+        Building the Future, One Project at a Time
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+
+  /* ===============================
+     PRELOADER
+     =============================== */
+
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+
+    setTimeout(() => {
+      preloader.classList.add("hide");
+    }, 500);
+  });
+
+  /* ===============================
+     NAVBAR
+     =============================== */
+
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+
+  });
+
+  /* ===============================
+     MOBILE MENU
+     =============================== */
+
+  const menuToggle = document.getElementById("menuToggle");
+
+  menuToggle.addEventListener("click", () => {
+
+    navbar.classList.toggle("mobile-open");
+
+    const icon = menuToggle.querySelector("i");
+
+    if (navbar.classList.contains("mobile-open")) {
+      icon.classList.remove("fa-bars");
+      icon.classList.add("fa-xmark");
+    } else {
+      icon.classList.remove("fa-xmark");
+      icon.classList.add("fa-bars");
+    }
+
+  });
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      navbar.classList.remove("mobile-open");
+
+      const icon = menuToggle.querySelector("i");
+
+      icon.classList.remove("fa-xmark");
+      icon.classList.add("fa-bars");
+
+    });
+
+  });
+
+  /* ===============================
+     PROJECT DETAILS
+     =============================== */
+
+  const projectCards = document.querySelectorAll(".project-card");
+
+  projectCards.forEach(card => {
+
+    const button = card.querySelector(".details-btn");
+
+    button.addEventListener("click", () => {
+
+      const isOpen = card.classList.contains("open");
+
+      // Close other project cards
+      projectCards.forEach(otherCard => {
+        if (otherCard !== card) {
+          otherCard.classList.remove("open");
+        }
+      });
+
+      if (!isOpen) {
+        card.classList.add("open");
+
+        setTimeout(() => {
+
+          const top = card.getBoundingClientRect().top + window.scrollY - 110;
+
+          window.scrollTo({
+            top,
+            behavior: "smooth"
+          });
+
+        }, 150);
+
+      } else {
+        card.classList.remove("open");
+      }
+
+    });
+
+  });
+
+  /* ===============================
+     REVEAL ON SCROLL
+     =============================== */
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("visible");
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.12
+    }
+  );
+
+  revealElements.forEach(element => {
+    revealObserver.observe(element);
+  });
+
+  /* ===============================
+     3D PROJECT CARD TILT
+     =============================== */
+
+  const canTilt = window.matchMedia("(pointer: fine)").matches;
+
+  if (canTilt) {
+
+    projectCards.forEach(card => {
+
+      card.addEventListener("mousemove", event => {
+
+        if (card.classList.contains("open")) return;
+
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+
+        const y = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -2.2;
+
+        const rotateY = ((x - centerX) / centerX) * 2.2;
+
+        card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
+
+      });
+
+      card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "";
+
+      });
+
+    });
+
+  }
+  /* =========================
+     CURSOR GLOW
+========================= */
+
+const cursorGlow =
+    document.getElementById("cursorGlow");
+
+if (canTilt) {
+
+    window.addEventListener("mousemove", event => {
+
+        cursorGlow.style.left =
+            event.clientX + "px";
+
+        cursorGlow.style.top =
+            event.clientY + "px";
+
+    });
+
+} else {
+
+    cursorGlow.style.display = "none";
+
+}
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const formMessage =
+    document.getElementById("formMessage");
+
+contactForm.addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const message =
+        document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+        return;
+    }
+
+    const subject =
+        encodeURIComponent(
+            `Portfolio message from ${name}`
+        );
+
+    const body =
+        encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        );
+
+    window.location.href =
+        `mailto:djtillu1816@gmail.com?subject=${subject}&body=${body}`;
+
+    formMessage.style.display = "block";
+
+});
+
+
+/* =========================
+   ACTIVE NAV LINK
+========================= */
+
+const sections =
+    document.querySelectorAll("main section");
+
+const navLinks =
+    document.querySelectorAll(".nav-links a");
+
+const sectionObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    navLinks.forEach(link => {
+                        link.classList.remove("active");
+                    });
+
+                    const active =
+                        document.querySelector(
+                            `.nav-links a[href="#${entry.target.id}"]`
+                        );
+
+                    if (active) {
+                        active.classList.add("active");
+                    }
+
+                }
+
+            });
+
+        },
+        {
+            rootMargin: "-35% 0px -55% 0px"
+        }
+    );
+
+sections.forEach(section => {
+    sectionObserver.observe(section);
+});
+/*--------------------------*/
+document.addEventListener("DOMContentLoaded", function () {
+
+  const detailButtons =
+    document.querySelectorAll(".details-btn");
+
+
+  detailButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+      const card =
+        button.closest(".project-card");
+
+      const isOpen =
+        card.classList.contains("open");
+
+
+      /* Close other projects */
+
+      document
+        .querySelectorAll(".project-card.open")
+        .forEach(function (otherCard) {
+
+          if (otherCard !== card) {
+
+            otherCard.classList.remove("open");
+
+            const otherButton =
+              otherCard.querySelector(".details-btn");
+
+            if (otherButton) {
+              otherButton.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+            }
+
+          }
+
+        });
+
+
+      /* Toggle current project */
+
+      card.classList.toggle("open", !isOpen);
+
+      button.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+      );
+
+    });
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
