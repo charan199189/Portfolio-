@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="All Projects — Jetipiti Ram Charan Portfolio" />
+
+  <title>Projects · Jetipiti Ram Charan</title>
+
+  <!-- Fonts — exact same as rcindex.html -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icons — exact same as rcindex.html -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <style>
+    /* =====================================================
+       DESIGN TOKENS — copied exactly from rcindex.html
+    ===================================================== */
+    :root {
+      --brown-950: #21130e;
+      --brown-900: #2b1811;
+      --brown-800: #3a2118;
+      --brown-700: #4d2c20;
+      --brown-600: #76533d;
+      --brown-500: #a87545;
+
+      --cream-50:  #fffaf1;
+      --cream-100: #f8f0e2;
+      --cream-200: #f1e5d3;
+      --cream-300: #e7d7c0;
+
+      --white: #ffffff;
+
+      --serif: "Playfair Display", Georgia, serif;
+      --sans:  "DM Sans", Arial, sans-serif;
+
+      --shadow-sm: 0 10px 30px rgba(43, 24, 17, 0.08);
+      --shadow-md: 0 20px 50px rgba(43, 24, 17, 0.13);
+      --shadow-lg: 0 35px 90px rgba(43, 24, 17, 0.18);
+
+      --radius-sm: 14px;
+      --radius-md: 24px;
+      --radius-lg: 34px;
+
+      --container: 1180px;
+    }
+
+    /* =====================================================
+       RESET & BASE STYLES
+    ===================================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream-50);
+      color: var(--brown-950);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin-inline: auto;
+    }
+
+    /* =====================================================
+       HEADER / NAVBAR — exact style matching rcindex.html
+    ===================================================== */
+    .navbar {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(94%, 1120px);
+      z-index: 1000;
+
+      padding: 13px 16px 13px 22px;
+      border: 1px solid rgba(58, 33, 24, 0.12);
+      border-radius: 100px;
+
+      background: rgba(255, 250, 241, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow: 0 10px 40px rgba(43, 24, 17, 0.07);
+      transition: 0.35s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+      color: var(--brown-950);
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: var(--cream-50);
+      background: var(--brown-800);
+      border-radius: 50%;
+      font-family: var(--serif);
+      font-size: 17px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+
+    .brand-name {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Back button styled like a secondary nav button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--brown-800);
+      border: 1px solid var(--cream-300);
+      background: var(--cream-100);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background: var(--brown-800);
+      color: var(--cream-50);
+      transform: translateY(-2px);
+    }
+
+    .back-btn i {
+      font-size: 11px;
+    }
+
+    /* =====================================================
+       PAGE HERO — typography from rcindex.html
+    ===================================================== */
+    .page-hero {
+      padding: 160px 0 50px;
+      background: var(--cream-50);
+    }
+
+    .section-label {
+      color: var(--brown-500);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      color: var(--brown-950);
+    }
+
+    .section-description {
+      max-width: 600px;
+      margin-top: 20px;
+      color: var(--brown-600);
+    }
+
+    /* =====================================================
+       SEARCH BAR
+    ===================================================== */
+    .search-container {
+      margin-top: 40px;
+    }
+
+    .search-wrapper {
+      position: relative;
+      max-width: 450px;
+      width: 100%;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--brown-500);
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 14px 20px 14px 50px;
+      border-radius: 100px;
+      border: 1px solid var(--cream-300);
+      background: var(--cream-50);
+      color: var(--brown-950);
+      font-size: 14px;
+      font-weight: 500;
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .search-input::placeholder {
+      color: var(--brown-600);
+      opacity: 0.7;
+    }
+
+    .search-input:focus {
+      border-color: var(--brown-500);
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .search-results-info {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--brown-600);
+      font-weight: 500;
+      padding-left: 8px;
+    }
+
+    /* =====================================================
+       PROJECTS SECTION — exact background and padding
+    ===================================================== */
+    .projects {
+      background: var(--cream-100);
+      padding: 80px 0 120px;
+      min-height: 400px;
+    }
+
+    .projects-list {
+      display: grid;
+      gap: 24px;
+    }
+
+    /* No results styling */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--brown-600);
+    }
+
+    .no-results-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: var(--brown-500);
+    }
+
+    .no-results-title {
+      font-family: var(--serif);
+      font-size: 28px;
+      color: var(--brown-950);
+      margin-bottom: 8px;
+    }
+
+    /* =====================================================
+       PROJECT CARD — copied exactly from rcindex.html
+    ===================================================== */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--cream-50);
+      border: 1px solid var(--cream-300);
+      border-radius: 30px;
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(118, 83, 61, 0.25);
+    }
+
+    .project-main {
+      display: grid;
+      grid-template-columns: 330px minmax(0, 1fr);
+      align-items: center;
+      min-height: 270px;
+    }
+
+    /* Cream project frame container */
+    .project-image {
+      position: relative;
+      width: 285px;
+      height: 220px;
+      margin: 24px;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--cream-50);
+      border: 1px solid var(--cream-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Image wrapper */
+    .project-placeholder {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 24px;
+      background: transparent;
+    }
+
+    /* Project Image Sizing Fix — avoids black edges and side lines */
+    .project-placeholder img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 92%;
+      max-height: 92%;
+      object-fit: contain;
+      object-position: center;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 20px;
+      transform: none;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .project-placeholder img {
+      transform: scale(1.025);
+    }
+
+    .project-info {
+      min-width: 0;
+      padding: 38px 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-number {
+      color: var(--brown-500);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      margin-bottom: 14px;
+    }
+
+    .project-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(34px, 4vw, 50px);
+      line-height: 0.98;
+      color: var(--brown-950);
+    }
+
+    .project-category {
+      margin: 14px 0 0;
+      color: var(--brown-600);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .details-btn {
+      width: fit-content;
+      margin-top: 26px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--brown-800);
+      font-size: 13px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+    }
+
+    .details-btn span, .details-btn i {
+      font-style: normal;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .details-btn:hover {
+      color: var(--brown-500);
+    }
+
+    .project-card.open .details-btn span,
+    .project-card.open .details-btn i {
+      transform: rotate(180deg);
+    }
+
+    /* Expandable project details */
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition:
+        max-height 0.6s cubic-bezier(.22, .61, .36, 1),
+        opacity 0.35s ease;
+    }
+
+    .project-card.open .project-details {
+      max-height: 800px;
+      opacity: 1;
+    }
+
+    .project-details-inner {
+      border-top: 1px solid var(--cream-300);
+      padding: 34px 42px 42px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .details-copy p {
+      margin: 0;
+      color: var(--brown-600);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .feature-title {
+      color: var(--brown-800);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 9px;
+    }
+
+    .features li {
+      color: var(--brown-600);
+      font-size: 13px;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .features li::before {
+      content: "✦";
+      color: var(--brown-500);
+      flex-shrink: 0;
+    }
+
+    .project-action {
+      grid-column: 1 / -1;
+    }
+
+    /* Primary button style */
+    .btn {
+      min-height: 52px;
+      padding: 0 23px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 100px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      font-weight: 700;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--brown-800);
+      color: var(--cream-50);
+      box-shadow: 0 12px 30px rgba(58, 33, 24, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      background: var(--brown-950);
+      box-shadow: 0 18px 38px rgba(58, 33, 24, 0.28);
+    }
+
+    /* =====================================================
+       REVEAL SCROLL ANIMATION
+    ===================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.22,.61,.36,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =====================================================
+       TABLET MEDIA QUERY (max-width: 800px)
+    ===================================================== */
+    @media (max-width: 800px) {
+      .projects {
+        padding: 60px 0;
+      }
+
+      .project-main {
+        grid-template-columns: 270px minmax(0, 1fr);
+        min-height: 240px;
+      }
+
+      .project-image {
+        width: 240px;
+        height: 190px;
+        margin: 18px;
+      }
+
+      .project-info {
+        padding: 28px 26px;
+      }
+
+      .project-title {
+        font-size: clamp(30px, 5vw, 42px);
+      }
+
+      .project-details-inner {
+        padding: 28px;
+        gap: 28px;
+      }
+    }
+
+    /* =====================================================
+       RESPONSIVE BREAKPOINT FOR NAVBAR (max-width: 760px)
+    ===================================================== */
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .navbar {
+        top: 10px;
+        padding: 10px 11px 10px 16px;
+      }
+
+      .brand-name {
+        font-size: 11px;
+      }
+
+      .back-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+    }
+
+    /* =====================================================
+       MOBILE MEDIA QUERY (max-width: 600px)
+    ===================================================== */
+    @media (max-width: 600px) {
+      .projects {
+        padding: 50px 0;
+      }
+
+      .projects-list {
+        gap: 18px;
+      }
+
+      .project-main {
+        display: block;
+        min-height: auto;
+      }
+
+      .project-image {
+        width: calc(100% - 28px);
+        height: 230px;
+        margin: 14px;
+        border-radius: 22px;
+      }
+
+      .project-placeholder {
+        padding: 12px;
+        border-radius: 22px;
+      }
+
+      .project-placeholder img {
+        max-width: 92%;
+        max-height: 92%;
+        border-radius: 20px;
+      }
+
+      .project-info {
+        padding: 24px 22px 28px;
+      }
+
+      .project-number {
+        margin-bottom: 11px;
+      }
+
+      .project-title {
+        font-size: clamp(32px, 10vw, 44px);
+        line-height: 1;
+      }
+
+      .project-category {
+        font-size: 12px;
+        margin-top: 11px;
+      }
+
+      .details-btn {
+        margin-top: 22px;
+      }
+
+      .project-details-inner {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        padding: 26px 22px 30px;
+      }
+
+      .project-action {
+        grid-column: auto;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .details-copy p {
+        font-size: 14px;
+      }
+    }
+
+    /* =====================================================
+       VERY SMALL MOBILE BREAKPOINT (max-width: 380px)
+    ===================================================== */
+    @media (max-width: 380px) {
+      .project-image {
+        height: 210px;
+        margin: 12px;
+        width: calc(100% - 24px);
+      }
+
+      .project-placeholder {
+        padding: 10px;
+      }
+
+      .project-info {
+        padding: 22px 18px 26px;
+      }
+
+      .project-details-inner {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="rcindex.html" class="brand">
+        <span class="brand-mark">JR</span>
+        <span class="brand-name">Jetipiti Ram Charan</span>
+      </a>
+      <a href="rcindex.html#projects" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </a>
+    </div>
+  </nav>
+
+  <!-- =====================================================
+       PAGE HERO
+  ===================================================== -->
+  <section class="page-hero reveal">
+    <div class="container">
+      <div class="section-label">My Projects</div>
+      <h1 class="section-title">All<br>projects.</h1>
+      <p class="section-description">
+        A collection of projects I've built while learning, experimenting, and exploring frontend development.
+      </p>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="projectSearch" class="search-input" placeholder="Search projects..." />
+        </div>
+        <div id="resultsInfo" class="search-results-info"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       MAIN PROJECTS SECTION
+  ===================================================== -->
+  <section class="projects reveal">
+    <div class="container">
+      <div class="projects-list" id="projectsList">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- No Results State -->
+      <div class="no-results" id="noResults">
+        <div class="no-results-icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="no-results-title">No projects found</div>
+        <p>Try searching for a different name, category, or feature.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
+  <script>
+    // Centralized Projects Data Array
+    // Easily add future projects by copying the structure below.
+    const projectsData = [
+      {
+        number: "PROJECT 01",
+        title: "TicketGo",
+        category: "Bus Ticket Booking · Frontend Web Project",
+        image: "tg.jpg",
+        description: "TicketGo is a bus ticket booking frontend project designed to provide a simple and practical bus reservation experience. Users can select their preferred bus journey based on date and time, enter their name and phone number, and book available tickets.",
+        features: [
+          "Bus ticket booking",
+          "Date and time selection",
+          "Passenger name and phone number",
+          "Available spot ticket display",
+          "Waiting list functionality",
+          "Booking confirmation",
+          "Unique ticket ID",
+          "Ticket cancellation using phone number",
+          "Waiting-list status"
+        ],
+        url: "https://charan199189.github.io/Bus-tickets-booking-/"
+      },
+      {
+        number: "PROJECT 02",
+        title: "Class Attendance",
+        category: "Academic Portal · Frontend Web Project",
+        image: "sp.jpg",
+        description: "A frontend website created for my class to organize important academic information in one place.",
+        features: [
+          "Attendance information",
+          "Mid-term marks",
+          "Study materials",
+          "Class-related academic information",
+          "Simple and accessible interface"
+        ],
+        url: "https://charan199189.github.io/Attendance-website/"
+      }
+      /*
+      // FUTURE PROJECT TEMPLATE:
+      ,
+      {
+        number: "PROJECT 03",
+        title: "Project Name",
+        category: "Category · Tech Stack",
+        image: "image_filename.jpg",
+        description: "A clear, engaging description of what the project does and the technology stack utilized.",
+        features: [
+          "Feature Description 1",
+          "Feature Description 2",
+          "Feature Description 3"
+        ],
+        url: "https://project-url.com"
+      }
+      */
+    ];
+
+    const projectsList = document.getElementById("projectsList");
+    const searchInput = document.getElementById("projectSearch");
+    const noResults = document.getElementById("noResults");
+    const resultsInfo = document.getElementById("resultsInfo");
+
+    // Render projects list dynamically
+    function renderProjects(projects) {
+      projectsList.innerHTML = "";
+      if (projects.length === 0) {
+        noResults.style.display = "block";
+        resultsInfo.textContent = "No projects match your search.";
+        return;
+      }
+      noResults.style.display = "none";
+      resultsInfo.textContent = searchInput.value.trim() !== "" ? `${projects.length} project(s) found` : "";
+
+      projects.forEach((proj, idx) => {
+        const card = document.createElement("article");
+        card.className = "project-card";
+        
+        // Populate features list
+        const featuresHTML = proj.features.map(feat => `<li>${feat}</li>`).join("");
+
+        // Conditionally show View Project button if URL is defined
+        const actionBtnHTML = proj.url ? `
+          <div class="project-action">
+            <a href="${proj.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              View Project
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        ` : '';
+
+        card.innerHTML = `
+          <div class="project-main">
+            <div class="project-image">
+              <div class="project-placeholder">
+                <img src="${proj.image}" alt="${proj.title} Project Image" />
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-number">${proj.number}</div>
+              <h3 class="project-title">${proj.title}</h3>
+              <div class="project-category">${proj.category}</div>
+              <button class="details-btn" type="button" aria-expanded="false">
+                Details <span>↓</span>
+              </button>
+            </div>
+          </div>
+          <div class="project-details" aria-hidden="true">
+            <div class="project-details-inner">
+              <div class="details-copy">
+                <div class="feature-title">About the project</div>
+                <p>${proj.description}</p>
+              </div>
+              <div>
+                <div class="feature-title">Features</div>
+                <ul class="features">
+                  ${featuresHTML}
+                </ul>
+              </div>
+              ${actionBtnHTML}
+            </div>
+          </div>
+        `;
+        
+        projectsList.appendChild(card);
+      });
+    }
+
+    // Initial render
+    renderProjects(projectsData);
+
+    // Accordion interaction with smooth scroll offset
+    projectsList.addEventListener("click", (e) => {
+      const btn = e.target.closest(".details-btn");
+      if (!btn) return;
+
+      const card = btn.closest(".project-card");
+      const isOpen = card.classList.contains("open");
+      const details = card.querySelector(".project-details");
+
+      // Close other project cards
+      const allCards = projectsList.querySelectorAll(".project-card");
+      allCards.forEach(otherCard => {
+        if (otherCard !== card) {
+          otherCard.classList.remove("open");
+          const otherBtn = otherCard.querySelector(".details-btn");
+          const otherDetails = otherCard.querySelector(".project-details");
+          if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+          if (otherDetails) otherDetails.setAttribute("aria-hidden", "true");
+        }
+      });
+
+      // Toggle current card
+      if (!isOpen) {
+        card.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+        details.setAttribute("aria-hidden", "false");
+
+        setTimeout(() => {
+          const top = card.getBoundingClientRect().top + window.scrollY - 110;
+          window.scrollTo({
+            top,
+            behavior: "smooth"
+          });
+        }, 150);
+      } else {
+        card.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        details.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    // Real-time live search filter
+    searchInput.addEventListener("input", () => {
+      const term = searchInput.value.toLowerCase().trim();
+      
+      const filtered = projectsData.filter(proj => {
+        const titleMatch = proj.title.toLowerCase().includes(term);
+        const catMatch = proj.category.toLowerCase().includes(term);
+        const descMatch = proj.description.toLowerCase().includes(term);
+        const featMatch = proj.features.some(feat => feat.toLowerCase().includes(term));
+        return titleMatch || catMatch || descMatch || featMatch;
+      });
+
+      renderProjects(filtered);
+    });
+
+    // Reveal animation Observer
+    const revealElements = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+</body>
+</html>
+
